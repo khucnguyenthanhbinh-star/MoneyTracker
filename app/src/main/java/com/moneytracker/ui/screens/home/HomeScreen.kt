@@ -28,7 +28,6 @@ import java.util.*
 fun HomeScreen(
     onAddTransaction: () -> Unit,
     onEditTransaction: (Long) -> Unit = {},
-    onSettings: () -> Unit = {},
     viewModel: HomeViewModel = viewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -36,8 +35,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("MoneyTracker", fontWeight = FontWeight.Bold) },
-                actions = { IconButton(onClick = onSettings) { Icon(Icons.Default.Settings, "Cài đặt") } }
+                title = { Text("MoneyTracker", fontWeight = FontWeight.Bold) }
             )
         },
         floatingActionButton = { FloatingActionButton(onClick = onAddTransaction) { Icon(Icons.Default.Add, "Thêm") } }
@@ -177,14 +175,13 @@ fun TransactionItem(tx: TransactionEntity, onClick: () -> Unit, onDelete: () -> 
     var showDeleteDialog by remember { mutableStateOf(false) }
     Card(Modifier.fillMaxWidth().padding(vertical = 2.dp).clickable { onClick() }) {
         Row(Modifier.fillMaxWidth().padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
-            Column(Modifier.weight(1f)) {
-                Text(tx.note, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Medium)
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(formatDate(tx.date), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    if (tx.quantity > 1) { Spacer(Modifier.width(8.dp)); Text("x${tx.quantity}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
-                }
+            Text(tx.note, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Medium, maxLines = 2, modifier = Modifier.weight(1f))
+            if (tx.quantity > 1) {
+                Text("x${tx.quantity}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.width(32.dp))
+            } else {
+                Spacer(Modifier.width(32.dp))
             }
-            Text("-${formatter.format(tx.amount * tx.quantity)}đ", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error)
+            Text("-${formatter.format(tx.amount * tx.quantity)}đ", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error, modifier = Modifier.widthIn(min = 80.dp), textAlign = TextAlign.End)
             IconButton(onClick = { showDeleteDialog = true }, modifier = Modifier.size(32.dp)) { Icon(Icons.Default.Delete, "Xóa", tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(16.dp)) }
         }
     }

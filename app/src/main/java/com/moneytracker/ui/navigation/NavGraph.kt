@@ -8,7 +8,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.moneytracker.ui.screens.add.AddTransactionScreen
 import com.moneytracker.ui.screens.home.HomeScreen
-import com.moneytracker.ui.screens.settings.SettingsScreen
 
 @Composable
 fun MoneyTrackerNavigation() {
@@ -17,8 +16,7 @@ fun MoneyTrackerNavigation() {
         composable("home") {
             HomeScreen(
                 onAddTransaction = { navController.navigate("add") },
-                onEditTransaction = { id -> navController.navigate("edit/$id") },
-                onSettings = { navController.navigate("settings") }
+                onEditTransaction = { id -> navController.navigate("edit/$id") }
             )
         }
         composable("add") {
@@ -28,6 +26,5 @@ fun MoneyTrackerNavigation() {
             val txId = it.arguments?.getLong("txId") ?: 0L
             AddTransactionScreen(transactionId = txId, onBack = { navController.popBackStack() })
         }
-        composable("settings") { SettingsScreen(onBack = { navController.popBackStack() }) }
     }
 }
