@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MoneyTracker</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_add_transaction">Add Transaction</string>
+
+    <!-- Home -->
+    <string name="home_balance">Balance</string>
+    <string name="home_income">Income</string>
+    <string name="home_expense">Expense</string>
+    <string name="home_today">Today</string>
+    <string name="home_no_transactions">No transactions yet</string>
+    <string name="home_add_first">Tap + to add your first transaction</string>
+
+    <!-- Add Transaction -->
+    <string name="add_title">Add Transaction</string>
+    <string name="add_expense">Expense</string>
+    <string name="add_income">Income</string>
+    <string name="add_amount">Amount</string>
+    <string name="add_note">Note</string>
+    <string name="add_quantity">Quantity</string>
+    <string name="add_date">Date</string>
+    <string name="add_category">Category</string>
+    <string name="add_save">Save</string>
+    <string name="add_saving">Saving…</string>
+    <string name="add_amount_error">Please enter an amount</string>
+    <string name="add_category_error">Please select a category</string>
+
+    <!-- Date Range -->
+    <string name="date_today">Today</string>
+    <string name="date_week">This Week</string>
+    <string name="date_month">This Month</string>
+    <string name="date_year">This Year</string>
+    <string name="date_custom">Custom</string>
+
+    <!-- Transaction List -->
+    <string name="transaction_list_title">Transactions</string>
+
+    <!-- Transaction Detail -->
+    <string name="detail_title">Transaction Detail</string>
+    <string name="detail_delete">Delete</string>
+    <string name="detail_delete_confirm">Are you sure you want to delete this transaction?</string>
+    <string name="detail_delete_yes">Delete</string>
+    <string name="detail_cancel">Cancel</string>
+
+    <!-- Report -->
+    <string name="report_title">Report</string>
+    <string name="report_income">Income</string>
+    <string name="report_expense">Expense</string>
+    <string name="report_balance">Balance</string>
+    <string name="report_by_category">Spending by Category</string>
+    <string name="report_detail">Detail</string>
+    <string name="report_no_data">No data yet</string>
+    <string name="report_no_data_msg">No expenses in this period</string>
+
+    <!-- Search -->
+    <string name="search_title">Search</string>
+    <string name="search_placeholder">Search transactions…</string>
+    <string name="search_all">All</string>
+    <string name="search_no_results">No results for \"%s\"</string>
+
+</resources>

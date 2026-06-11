@@ -24,6 +24,9 @@ out/
 *.txt
 *.hprof
 *.xml
+!gradle/wrapper/gradle-wrapper.properties
+!app/src/main/AndroidManifest.xml
+!app/src/main/res/**/*.xml
 *.png
 *.jpg
 

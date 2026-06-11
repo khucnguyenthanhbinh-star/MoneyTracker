@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MoneyTracker</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_add_transaction">Thêm giao dịch</string>
+
+    <!-- Home -->
+    <string name="home_balance">Số dư</string>
+    <string name="home_income">Thu nhập</string>
+    <string name="home_expense">Chi tiêu</string>
+    <string name="home_today">Hôm nay</string>
+    <string name="home_no_transactions">Chưa có giao dịch</string>
+    <string name="home_add_first">Nhấn + để thêm giao dịch đầu tiên</string>
+
+    <!-- Add Transaction -->
+    <string name="add_title">Thêm giao dịch</string>
+    <string name="add_expense">Chi tiêu</string>
+    <string name="add_income">Thu nhập</string>
+    <string name="add_amount">Số tiền</string>
+    <string name="add_note">Ghi chú</string>
+    <string name="add_quantity">Số lượng</string>
+    <string name="add_date">Ngày</string>
+    <string name="add_category">Danh mục</string>
+    <string name="add_save">Lưu giao dịch</string>
+    <string name="add_saving">Đang lưu…</string>
+    <string name="add_amount_error">Vui lòng nhập số tiền</string>
+    <string name="add_category_error">Vui lòng chọn danh mục</string>
+
+    <!-- Date Range -->
+    <string name="date_today">Hôm nay</string>
+    <string name="date_week">Tuần này</string>
+    <string name="date_month">Tháng này</string>
+    <string name="date_year">Năm nay</string>
+    <string name="date_custom">Tùy chọn</string>
+
+    <!-- Transaction List -->
+    <string name="transaction_list_title">Giao dịch</string>
+
+    <!-- Transaction Detail -->
+    <string name="detail_title">Chi tiết giao dịch</string>
+    <string name="detail_delete">Xóa</string>
+    <string name="detail_delete_confirm">Bạn có chắc muốn xóa giao dịch này?</string>
+    <string name="detail_delete_yes">Xóa</string>
+    <string name="detail_cancel">Hủy</string>
+
+    <!-- Report -->
+    <string name="report_title">Báo cáo</string>
+    <string name="report_income">Thu nhập</string>
+    <string name="report_expense">Chi tiêu</string>
+    <string name="report_balance">Số dư</string>
+    <string name="report_by_category">Chi tiêu theo danh mục</string>
+    <string name="report_detail">Chi tiết</string>
+    <string name="report_no_data">Chưa có dữ liệu</string>
+    <string name="report_no_data_msg">Không có chi tiêu trong kỳ này</string>
+
+    <!-- Search -->
+    <string name="search_title">Tìm kiếm</string>
+    <string name="search_placeholder">Tìm kiếm giao dịch…</string>
+    <string name="search_all">Tất cả</string>
+    <string name="search_no_results">Không tìm thấy \"%s\"</string>
+
+</resources>
