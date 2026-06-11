@@ -3,17 +3,12 @@ agp = "8.7.3"
 kotlin = "2.0.21"
 ksp = "2.0.21-1.0.28"
 compose-bom = "2024.12.01"
-hilt = "2.53.1"
-hilt-navigation-compose = "1.2.0"
 room = "2.6.1"
-mpandroidchart = "3.1.0"
 navigation-compose = "2.8.5"
 core-ktx = "1.15.0"
 lifecycle = "2.8.7"
 activity-compose = "1.9.3"
-security-crypto = "1.1.0-alpha07"
-biometric = "1.1.0"
-appcompat = "1.7.0"
+
 
 [libraries]
 # AndroidX Core
@@ -35,25 +30,10 @@ compose-material-icons-extended = { group = "androidx.compose.material", name = 
 # Navigation
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
 
-# Hilt
-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
-
 # Room
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-
-# Security
-security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "security-crypto" }
-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
-
-# AppCompat
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-
-# Charts
-mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
 
 # Coroutines
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version = "1.9.0" }
@@ -63,4 +43,4 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+

@@ -67,8 +67,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
