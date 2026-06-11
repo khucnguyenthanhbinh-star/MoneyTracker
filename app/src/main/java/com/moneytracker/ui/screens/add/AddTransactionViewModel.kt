@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 data class AddTransactionUiState(
-    val amountDisplay: String = "", // user types "50", displays "50"
-    val rawAmount: Long = 0L,       // stored as "50000" (50 * 1000)
+    val amountDisplay: String = "",
+    val rawAmount: Long = 0L,
     val note: String = "",
     val quantity: Int = 1,
     val isSaving: Boolean = false,
@@ -22,6 +22,7 @@ data class AddTransactionUiState(
     val editId: Long? = null,
     val selectedDateMs: Long = System.currentTimeMillis(),
     val suggestions: List<String> = emptyList(),
+    val filteredSuggestions: List<String> = emptyList(),
     val showSuggestions: Boolean = false
 )
 
@@ -30,12 +31,17 @@ class AddTransactionViewModel(application: Application) : AndroidViewModel(appli
     private val _uiState = MutableStateFlow(AddTransactionUiState())
     val uiState: StateFlow<AddTransactionUiState> = _uiState.asStateFlow()
 
-    init { loadSuggestions() }
+    init { observeSuggestions() }
 
-    private fun loadSuggestions() {
+    private fun observeSuggestions() {
         viewModelScope.launch {
-            repository.getAllTransactions().first().let { list ->
-                val names = list.map { it.note.ifEmpty { it.category } }.distinct().sorted()
+            repository.getAllTransactions().collect { list ->
+                val freq = mutableMapOf<String, Int>()
+                list.forEach { t ->
+                    val name = t.note.ifEmpty { t.category }
+                    freq[name] = (freq[name] ?: 0) + 1
+                }
+                val names = freq.entries.sortedByDescending { it.value }.map { it.key }
                 _uiState.value = _uiState.value.copy(suggestions = names)
             }
         }
@@ -64,10 +70,15 @@ class AddTransactionViewModel(application: Application) : AndroidViewModel(appli
     }
 
     fun updateNote(note: String) {
-        val suggestions = _uiState.value.suggestions.filter {
-            it.lowercase().contains(note.lowercase())
-        }.take(5)
-        _uiState.value = _uiState.value.copy(note = note, showSuggestions = note.isNotEmpty() && suggestions.isNotEmpty())
+        val q = note.trim().lowercase()
+        if (q.isEmpty()) {
+            _uiState.value = _uiState.value.copy(note = note, filteredSuggestions = emptyList(), showSuggestions = false)
+            return
+        }
+        val all = _uiState.value.suggestions
+        val matched = all.filter { it.lowercase().contains(q) }
+        val sorted = matched.sortedByDescending { it.lowercase().startsWith(q) }
+        _uiState.value = _uiState.value.copy(note = note, filteredSuggestions = sorted.take(5), showSuggestions = true)
     }
 
     fun selectSuggestion(text: String) {
