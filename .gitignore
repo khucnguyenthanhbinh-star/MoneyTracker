@@ -21,6 +21,7 @@ out/
 
 # Build
 *.log
+*.txt
 *.hprof
 *.xml
 *.png
